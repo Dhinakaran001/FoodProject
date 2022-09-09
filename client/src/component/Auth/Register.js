@@ -34,15 +34,13 @@ function Register() {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      if (!validate(errors)) {
-        await axios
-          .post(`/api/v1/auth/register`, user)
-          .then((res) => {
-            toast.success("User registerted successfully");
-            navigate("/login");
-          })
-          .catch((err) => toast.error(err.response.data.msg));
-      }
+      await axios
+        .post(`/api/v1/auth/register`, user)
+        .then((res) => {
+          toast.success("User registerted successfully");
+          navigate("/login");
+        })
+        .catch((err) => toast.error(err.response.data.msg));
     } catch (err) {
       toast.error(err.response.data.msg);
     }
