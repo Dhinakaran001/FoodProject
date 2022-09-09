@@ -9,7 +9,7 @@ import Aos from "aos";
 
 function Menu_Item() {
   useEffect(() => {
-    Aos.init({ duration: 1500 });
+    Aos.init({ duration: 2000 });
   }, []);
   return (
     <Box sx={{ mt: "75px" }}>
