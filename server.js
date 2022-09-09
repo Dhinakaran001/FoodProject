@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
-const helmet = require("helmet");
 require("dotenv").config();
 require("express-async-errors");
 const fileUpload = require("express-fileupload");
@@ -21,7 +20,6 @@ const orderRoute = require("./route/orderRoute");
 // configuration
 app.use(cors());
 app.use(cookieParser(process.env.REF_TOKEN_SECRET));
-app.use(helmet());
 app.use(
   fileUpload({
     useTempFiles: true,
