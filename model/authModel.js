@@ -39,7 +39,7 @@ const Auth = new mongoose.Schema(
     image: {
       type: Object,
       default: {
-        url: "https://bitsofco.de/content/images/2018/12/broken-1.png",
+        url: "https://res.cloudinary.com/dhina/image/upload/v1662720718/ProjectImage/notFound_f5b0sn.jpg",
       },
     },
   },

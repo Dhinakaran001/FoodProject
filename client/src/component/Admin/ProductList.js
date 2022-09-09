@@ -49,7 +49,7 @@ function ProductList() {
                   lg={6}
                   sm={6}
                   xs={12}
-                  sx={{ display: "flex", justifyContent: "center" }}
+                  sx={{ display: "flex", justifyContent: "center", mt: 2 }}
                 >
                   <Box
                     sx={{
