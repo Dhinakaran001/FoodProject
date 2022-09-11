@@ -13,6 +13,29 @@ import { NavLink } from "react-router-dom";
 import Footer from "./Footer";
 import Aos from "aos";
 
+const chef = [
+  {
+    img: "https://res.cloudinary.com/dhina/image/upload/v1661316264/ProjectImage/chef-1_q2fjme.png",
+    name: "Dharani",
+    body: "Senior Chef",
+  },
+  {
+    img: "https://res.cloudinary.com/dhina/image/upload/v1661316292/ProjectImage/chef-2_azu1lh.png",
+    name: "Dhanush",
+    body: "Junior Chef",
+  },
+  {
+    img: "https://res.cloudinary.com/dhina/image/upload/v1661316292/ProjectImage/chef-3_zp3yjk.png",
+    name: "Priya",
+    body: "Junior Chef",
+  },
+  {
+    img: "https://res.cloudinary.com/dhina/image/upload/v1661316291/ProjectImage/chef-4_nujus4.png",
+    name: "Vikram",
+    body: "Junior Chef",
+  },
+];
+
 function About() {
   useEffect(() => {
     Aos.init({ duration: 2000 });
@@ -327,68 +350,24 @@ function About() {
             Our chef
           </Typography>
           <Grid container align="center" sx={{ mt: 4 }}>
-            <Grid item lg={3} xs={12} sm={6} sx={{ mt: 2 }}>
-              <img
-                src="https://res.cloudinary.com/dhina/image/upload/v1661316264/ProjectImage/chef-1_q2fjme.png"
-                alt="chef"
-              />
-              <Typography
-                variant="h5"
-                color="#ffcf3f"
-                fontWeight={600}
-                sx={{ mt: 2 }}
-              >
-                Dharani
-              </Typography>
-              <Typography variant="h6">Senior Chef</Typography>
-            </Grid>
-            <Grid item lg={3} xs={12} sm={6} sx={{ mt: 2 }}>
-              <img
-                src="https://res.cloudinary.com/dhina/image/upload/v1661316292/ProjectImage/chef-2_azu1lh.png"
-                alt="chef"
-                style={{ height: "260px", width: "250px" }}
-              />
-              <Typography
-                variant="h5"
-                color="#ffcf3f"
-                fontWeight={600}
-                sx={{ mt: 2 }}
-              >
-                Dhanush
-              </Typography>
-              <Typography variant="h6">Senior Chef</Typography>
-            </Grid>
-            <Grid item lg={3} xs={12} sm={6} sx={{ mt: 2 }}>
-              <img
-                src="https://res.cloudinary.com/dhina/image/upload/v1661316292/ProjectImage/chef-3_zp3yjk.png"
-                alt="chef"
-              />
-              <Typography
-                variant="h5"
-                color="#ffcf3f"
-                fontWeight={600}
-                sx={{ mt: 2 }}
-              >
-                Priya
-              </Typography>
-              <Typography variant="h6">Junior Chef</Typography>
-            </Grid>
-            <Grid item lg={3} xs={12} sm={6} sx={{ mt: 2 }}>
-              <img
-                src="https://res.cloudinary.com/dhina/image/upload/v1661316291/ProjectImage/chef-4_nujus4.png"
-                alt="chef"
-                style={{ height: "260px", width: "250px" }}
-              />
-              <Typography
-                variant="h5"
-                color="#ffcf3f"
-                fontWeight={600}
-                sx={{ mt: 2 }}
-              >
-                Vikram
-              </Typography>
-              <Typography variant="h6">Junior Chef</Typography>
-            </Grid>
+            {chef.map((item, index) => {
+              return (
+                <Grid item lg={3} xs={12} sm={6} sx={{ mt: 2 }} key={index}>
+                  <Box sx={{ height: 260 }}>
+                    <img src={item.img} alt="chef" height="100%" />
+                  </Box>
+                  <Typography
+                    variant="h5"
+                    color="#ffcf3f"
+                    fontWeight={600}
+                    sx={{ mt: 2 }}
+                  >
+                    {item.name}
+                  </Typography>
+                  <Typography variant="h6">{item.body}</Typography>
+                </Grid>
+              );
+            })}
           </Grid>
         </Container>
       </Box>

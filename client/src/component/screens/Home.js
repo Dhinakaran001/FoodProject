@@ -23,6 +23,39 @@ import {
 import Footer from "./Footer";
 import Aos from "aos";
 
+const mainCard = [
+  {
+    img: "https://res.cloudinary.com/dhina/image/upload/v1661316319/ProjectImage/Home_item_01_kob5kb.jpg",
+    name: "pizza",
+    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae optio consequuntur ut sit facilis ab accusantium culpa.",
+  },
+  {
+    img: "https://res.cloudinary.com/dhina/image/upload/v1661316318/ProjectImage/Home_item_03_quwtyo.jpg",
+    name: "Online order",
+    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae optio consequuntur ut sit facilis ab accusantium culpa.",
+  },
+  {
+    img: "https://res.cloudinary.com/dhina/image/upload/v1661316318/ProjectImage/Home_item_02_nf8wgf.jpg",
+    name: "Home Delivery",
+    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae optio consequuntur ut sit facilis ab accusantium culpa.",
+  },
+];
+
+const service = [
+  {
+    img: "https://res.cloudinary.com/dhina/image/upload/v1661316293/ProjectImage/easy-del_bhwjjr.jpg",
+    name: "Easy To Order",
+  },
+  {
+    img: "https://res.cloudinary.com/dhina/image/upload/v1661316292/ProjectImage/fast-del_yyried.jpg",
+    name: "Fast Delivery",
+  },
+  {
+    img: "https://res.cloudinary.com/dhina/image/upload/v1661316318/ProjectImage/Quality-del_kcizk7.jpg",
+    name: "Best Quality",
+  },
+];
+
 function Home() {
   useEffect(() => {
     Aos.init({ duration: 1800 });
@@ -175,78 +208,37 @@ function Home() {
               What We Provide
             </Typography>
             <Grid container spacing={3} mt={1}>
-              <Grid item sm={4} md={4} xs={12}>
-                <NavLink to={`/menu`} style={{ textDecoration: "none" }}>
-                  <Card className="mainCard" sx={{ transition: "all 0.5s" }}>
-                    <CardActionArea>
-                      <CardMedia
-                        component="img"
-                        height="170"
-                        image="https://res.cloudinary.com/dhina/image/upload/v1661316319/ProjectImage/Home_item_01_kob5kb.jpg"
-                        alt="green iguana"
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                          pizza
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Beatae optio consequuntur ut sit facilis ab
-                          accusantium culpa.
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
-                </NavLink>
-              </Grid>
-              <Grid item sm={4} md={4} xs={12}>
-                <NavLink to={`/menu`} style={{ textDecoration: "none" }}>
-                  <Card className="mainCard" sx={{ transition: "all 0.5s" }}>
-                    <CardActionArea>
-                      <CardMedia
-                        component="img"
-                        height="170"
-                        image="https://res.cloudinary.com/dhina/image/upload/v1661316318/ProjectImage/Home_item_03_quwtyo.jpg"
-                        alt="green iguana"
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                          Online order
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Beatae optio consequuntur ut sit facilis ab
-                          accusantium culpa.
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
-                </NavLink>
-              </Grid>
-              <Grid item sm={4} md={4} xs={12}>
-                <NavLink to={`/menu`} style={{ textDecoration: "none" }}>
-                  <Card className="mainCard" sx={{ transition: "all 0.5s" }}>
-                    <CardActionArea>
-                      <CardMedia
-                        component="img"
-                        height="170"
-                        image="https://res.cloudinary.com/dhina/image/upload/v1661316318/ProjectImage/Home_item_02_nf8wgf.jpg"
-                        alt="green iguana"
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                          Home Delivery
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Beatae optio consequuntur ut sit facilis ab
-                          accusantium culpa.
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
-                </NavLink>
-              </Grid>
+              {mainCard.map((item, index) => {
+                return (
+                  <Grid item sm={4} md={4} xs={12} key={index}>
+                    <NavLink to={`/menu`} style={{ textDecoration: "none" }}>
+                      <Card
+                        className="mainCard"
+                        sx={{ transition: "all 0.5s" }}
+                      >
+                        <CardActionArea>
+                          <CardMedia
+                            component="img"
+                            height="170"
+                            image={item.img}
+                            alt="main card image"
+                          />
+                          <CardContent>
+                            <Typography gutterBottom variant="h5">
+                              {item.name}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                              Lorem ipsum dolor sit amet consectetur adipisicing
+                              elit. Beatae optio consequuntur ut sit facilis ab
+                              accusantium culpa.
+                            </Typography>
+                          </CardContent>
+                        </CardActionArea>
+                      </Card>
+                    </NavLink>
+                  </Grid>
+                );
+              })}
             </Grid>
           </Box>
         </Container>
@@ -277,34 +269,24 @@ function Home() {
               Our Awesome Service
             </Typography>
             <Grid container justifyContent={"center"} mt={2}>
-              <Grid item sm={4} md={4} lg={4} align="center">
-                <img
-                  src="https://res.cloudinary.com/dhina/image/upload/v1661316293/ProjectImage/easy-del_bhwjjr.jpg"
-                  alt="..."
-                  height={210}
-                />
-                <Typography sx={{ fontWeight: "600" }}>
-                  Easy To Order
-                </Typography>
-              </Grid>
-              <Grid item sm={4} md={4} lg={4} align="center">
-                <img
-                  src="https://res.cloudinary.com/dhina/image/upload/v1661316292/ProjectImage/fast-del_yyried.jpg"
-                  alt="..."
-                  height={210}
-                />
-                <Typography sx={{ fontWeight: "600" }}>
-                  Fast Delivery
-                </Typography>
-              </Grid>
-              <Grid item sm={4} md={4} lg={4} align="center">
-                <img
-                  src="https://res.cloudinary.com/dhina/image/upload/v1661316318/ProjectImage/Quality-del_kcizk7.jpg"
-                  alt="..."
-                  height={210}
-                />
-                <Typography sx={{ fontWeight: "600" }}>Best Quality</Typography>
-              </Grid>
+              {service.map((item, index) => {
+                return (
+                  <Grid
+                    item
+                    xs={12}
+                    sm={4}
+                    md={4}
+                    lg={4}
+                    align="center"
+                    key={index}
+                  >
+                    <img src={item.img} alt="..." height={210} />
+                    <Typography sx={{ fontWeight: "600" }}>
+                      {item.name}
+                    </Typography>
+                  </Grid>
+                );
+              })}
             </Grid>
           </Stack>
         </Container>
