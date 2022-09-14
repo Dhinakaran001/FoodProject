@@ -38,7 +38,7 @@ function Main(props) {
   return (
     <Router>
       <Appbar />
-      <ToastContainer autoClose={3000} position="top-center" />
+      <ToastContainer autoClose={1000} position="top-center" />
       <Routes>
         <Route path={`/`} element={<Home />} />
         <Route path={`/about`} element={<About />} />
@@ -85,14 +85,7 @@ function Main(props) {
             </ProtectedRoute>
           }
         />
-        <Route
-          path={`/product/details/:id`}
-          element={
-            <ProtectedRoute auth={isLogged}>
-              <ProductDetails />
-            </ProtectedRoute>
-          }
-        />
+        <Route path={`/product/details/:id`} element={<ProductDetails />} />
         <Route
           path={`/product/create`}
           element={

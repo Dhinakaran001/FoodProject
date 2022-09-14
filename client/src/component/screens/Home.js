@@ -183,7 +183,7 @@ function Home() {
       </HeaderBox>
       <Box>
         <Container>
-          <Box pt={5} pb={5}>
+          <Box pt={5} pb={3}>
             <Box className="lineContainer" data-aos="fade-up">
               <Typography
                 align="center"

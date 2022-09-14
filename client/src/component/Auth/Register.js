@@ -66,7 +66,7 @@ function Register() {
           sx={{ boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" }}
         >
           <Card sx={{ padding: "20px" }}>
-            <Typography variant="h5">User Sign up</Typography>
+            <Typography variant="h5">Sign up</Typography>
             <Box component={"form"} onSubmit={submitHandler}>
               <TextField
                 label="Name*"
