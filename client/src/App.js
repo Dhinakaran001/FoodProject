@@ -3,7 +3,7 @@ import Main from "./component/Main";
 import DataProvider from "./GlobalContext";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./style/Theme";
-import BeatLoader from "react-spinners/BeatLoader";
+import PulseLoader from "react-spinners/PulseLoader";
 
 function App(props) {
   const [loading, setLoading] = useState(false);
@@ -17,7 +17,7 @@ function App(props) {
   return (
     <div>
       {loading ? (
-        <BeatLoader
+        <PulseLoader
           size={20}
           color={"#8956ff"}
           loading={loading}
