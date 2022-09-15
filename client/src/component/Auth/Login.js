@@ -14,6 +14,7 @@ import {
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import UserInputLogin from "./UserInputLogin";
+import Fade from "react-reveal/Fade";
 
 function Login() {
   const [user, setUser] = useState({
@@ -48,94 +49,96 @@ function Login() {
   };
   return (
     <Container>
-      <Grid
-        container
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
+      <Fade left>
         <Grid
-          item
-          lg={4}
-          sm={7}
-          md={6}
-          xs={12}
+          container
           sx={{
-            paddingTop: 3,
-            boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
           }}
         >
-          <Card sx={{ padding: "20px" }}>
-            <Typography variant="h5">Login</Typography>
-            <Box component={"form"} onSubmit={submitHandler}>
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                <PersonOutlineOutlinedIcon
-                  sx={{ color: "action.active", mr: 1, my: 0.5 }}
-                />
-                <TextField
-                  label="Email*"
-                  type="email"
-                  name="email"
-                  id="email"
-                  value={user.email}
-                  onChange={readValue}
-                  variant="standard"
-                  sx={{ mt: 3, width: "100%" }}
-                />
+          <Grid
+            item
+            lg={4}
+            sm={7}
+            md={6}
+            xs={12}
+            sx={{
+              paddingTop: 3,
+              boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+            }}
+          >
+            <Card sx={{ padding: "20px" }}>
+              <Typography variant="h5">Login</Typography>
+              <Box component={"form"} onSubmit={submitHandler}>
+                <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+                  <PersonOutlineOutlinedIcon
+                    sx={{ color: "action.active", mr: 1, my: 0.5 }}
+                  />
+                  <TextField
+                    label="Email*"
+                    type="email"
+                    name="email"
+                    id="email"
+                    value={user.email}
+                    onChange={readValue}
+                    variant="standard"
+                    sx={{ mt: 3, width: "100%" }}
+                  />
+                </Box>
+                {errors && errors.email ? (
+                  <Typography ml={4} fontSize={"0.8rem"} color="red">
+                    {errors.email}
+                  </Typography>
+                ) : null}
+                <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+                  <LockOutlinedIcon
+                    sx={{ color: "action.active", mr: 1, my: 0.5 }}
+                  />
+                  <TextField
+                    label="Password*"
+                    type="password"
+                    name="password"
+                    id="password"
+                    value={user.password}
+                    onChange={readValue}
+                    variant="standard"
+                    sx={{ mt: 3, width: "100%" }}
+                  />
+                </Box>
+                {errors && errors.password ? (
+                  <Typography ml={4} fontSize={"0.8rem"} color="red">
+                    {errors.password}
+                  </Typography>
+                ) : null}
+                <Button
+                  variant="contained"
+                  type="submit"
+                  style={{
+                    marginTop: "38px",
+                    width: "100%",
+                    background: `linear-gradient(to right, #f12711, #f5af19)`,
+                  }}
+                >
+                  Login
+                </Button>
               </Box>
-              {errors && errors.email ? (
-                <Typography ml={4} fontSize={"0.8rem"} color="red">
-                  {errors.email}
-                </Typography>
-              ) : null}
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                <LockOutlinedIcon
-                  sx={{ color: "action.active", mr: 1, my: 0.5 }}
-                />
-                <TextField
-                  label="Password*"
-                  type="password"
-                  name="password"
-                  id="password"
-                  value={user.password}
-                  onChange={readValue}
-                  variant="standard"
-                  sx={{ mt: 3, width: "100%" }}
-                />
+              <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 3 }}>
+                <Typography color={"#551A8B"}>New user?</Typography>
+                <NavLink
+                  to={`/register`}
+                  style={{ marginLeft: "10px" }}
+                  className="LoginLink"
+                >
+                  SignUp
+                </NavLink>
               </Box>
-              {errors && errors.password ? (
-                <Typography ml={4} fontSize={"0.8rem"} color="red">
-                  {errors.password}
-                </Typography>
-              ) : null}
-              <Button
-                variant="contained"
-                type="submit"
-                style={{
-                  marginTop: "38px",
-                  width: "100%",
-                  background: `linear-gradient(to right, #f12711, #f5af19)`,
-                }}
-              >
-                Login
-              </Button>
-            </Box>
-            <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 3 }}>
-              <Typography color={"#551A8B"}>New user?</Typography>
-              <NavLink
-                to={`/register`}
-                style={{ marginLeft: "10px" }}
-                className="LoginLink"
-              >
-                SignUp
-              </NavLink>
-            </Box>
-          </Card>
+            </Card>
+          </Grid>
         </Grid>
-      </Grid>
+      </Fade>
     </Container>
   );
 }

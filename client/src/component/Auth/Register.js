@@ -12,6 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import UserInputReg from "./UserInputReg";
+import Fade from "react-reveal/Fade";
 
 function Register() {
   const [user, setUser] = useState({
@@ -47,115 +48,117 @@ function Register() {
   };
   return (
     <Container>
-      <Grid
-        container
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          paddingTop: 9,
-        }}
-      >
+      <Fade right>
         <Grid
-          item
-          lg={4}
-          xs={12}
-          sm={7}
-          md={6}
-          sx={{ boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" }}
+          container
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            paddingTop: 9,
+          }}
         >
-          <Card sx={{ padding: "20px" }}>
-            <Typography variant="h5">Sign up</Typography>
-            <Box component={"form"} onSubmit={submitHandler}>
-              <TextField
-                label="Name*"
-                type="text"
-                name="name"
-                id="name"
-                value={user.name}
-                onChange={readValue}
-                variant="standard"
-                sx={{ mt: 2, width: "100%" }}
-              />
-              {errors && errors.name ? (
-                <Typography fontSize={"0.8rem"} color="red">
-                  {errors.name}
-                </Typography>
-              ) : null}
-              <TextField
-                label="Email*"
-                type="email"
-                name="email"
-                id="email"
-                value={user.email}
-                onChange={readValue}
-                // onBlur={(e) => setUser(e.target.email)}
-                variant="standard"
-                sx={{ mt: 2, width: "100%" }}
-              />
-              {errors && errors.email ? (
-                <Typography fontSize={"0.8rem"} color="red">
-                  {errors.email}
-                </Typography>
-              ) : null}
-              <TextField
-                label="Mobile Number*"
-                type="number"
-                name="mobile"
-                id="mobile"
-                value={user.mobile}
-                onChange={readValue}
-                // onBlur={(e) => setUser(e.target.mobile)}
-                variant="standard"
-                sx={{ mt: 2, width: "100%" }}
-              />
-              {errors && errors.mobile ? (
-                <Typography fontSize={"0.8rem"} color="red">
-                  {errors.mobile}
-                </Typography>
-              ) : null}
-              <TextField
-                label="Password*"
-                type="password"
-                name="password"
-                id="password"
-                value={user.password}
-                onChange={readValue}
-                // onBlur={(e) => setUser(e.target.password)}
-                variant="standard"
-                sx={{ mt: 2, width: "100%" }}
-              />
-              {errors && errors.password ? (
-                <Typography fontSize={"0.8rem"} color="red">
-                  {errors.password}
-                </Typography>
-              ) : null}
-              <Button
-                variant="contained"
-                type="submit"
-                style={{
-                  marginTop: "38px",
-                  width: "100%",
-                  background: `linear-gradient(to right, #f12711, #f5af19)`,
-                }}
-              >
-                Signup
-              </Button>
-            </Box>
-            <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 3 }}>
-              <Typography color={"#551A8B"}>Already have account?</Typography>
-              <NavLink
-                to={`/login`}
-                style={{ marginLeft: "10px" }}
-                className="LoginLink"
-              >
-                LogIn
-              </NavLink>
-            </Box>
-          </Card>
+          <Grid
+            item
+            lg={4}
+            xs={12}
+            sm={7}
+            md={6}
+            sx={{ boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" }}
+          >
+            <Card sx={{ padding: "20px" }}>
+              <Typography variant="h5">Sign up</Typography>
+              <Box component={"form"} onSubmit={submitHandler}>
+                <TextField
+                  label="Name*"
+                  type="text"
+                  name="name"
+                  id="name"
+                  value={user.name}
+                  onChange={readValue}
+                  variant="standard"
+                  sx={{ mt: 2, width: "100%" }}
+                />
+                {errors && errors.name ? (
+                  <Typography fontSize={"0.8rem"} color="red">
+                    {errors.name}
+                  </Typography>
+                ) : null}
+                <TextField
+                  label="Email*"
+                  type="email"
+                  name="email"
+                  id="email"
+                  value={user.email}
+                  onChange={readValue}
+                  // onBlur={(e) => setUser(e.target.email)}
+                  variant="standard"
+                  sx={{ mt: 2, width: "100%" }}
+                />
+                {errors && errors.email ? (
+                  <Typography fontSize={"0.8rem"} color="red">
+                    {errors.email}
+                  </Typography>
+                ) : null}
+                <TextField
+                  label="Mobile Number*"
+                  type="number"
+                  name="mobile"
+                  id="mobile"
+                  value={user.mobile}
+                  onChange={readValue}
+                  // onBlur={(e) => setUser(e.target.mobile)}
+                  variant="standard"
+                  sx={{ mt: 2, width: "100%" }}
+                />
+                {errors && errors.mobile ? (
+                  <Typography fontSize={"0.8rem"} color="red">
+                    {errors.mobile}
+                  </Typography>
+                ) : null}
+                <TextField
+                  label="Password*"
+                  type="password"
+                  name="password"
+                  id="password"
+                  value={user.password}
+                  onChange={readValue}
+                  // onBlur={(e) => setUser(e.target.password)}
+                  variant="standard"
+                  sx={{ mt: 2, width: "100%" }}
+                />
+                {errors && errors.password ? (
+                  <Typography fontSize={"0.8rem"} color="red">
+                    {errors.password}
+                  </Typography>
+                ) : null}
+                <Button
+                  variant="contained"
+                  type="submit"
+                  style={{
+                    marginTop: "38px",
+                    width: "100%",
+                    background: `linear-gradient(to right, #f12711, #f5af19)`,
+                  }}
+                >
+                  Signup
+                </Button>
+              </Box>
+              <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 3 }}>
+                <Typography color={"#551A8B"}>Already have account?</Typography>
+                <NavLink
+                  to={`/login`}
+                  style={{ marginLeft: "10px" }}
+                  className="LoginLink"
+                >
+                  LogIn
+                </NavLink>
+              </Box>
+            </Card>
+          </Grid>
         </Grid>
-      </Grid>
+      </Fade>
     </Container>
   );
 }
