@@ -58,7 +58,7 @@ const service = [
 
 function Home() {
   useEffect(() => {
-    Aos.init({ duration: 1800 });
+    Aos.init({ duration: 2000 });
   }, []);
   return (
     <Box sx={{ paddingTop: "75px" }}>

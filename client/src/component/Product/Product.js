@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   Typography,
@@ -7,7 +7,6 @@ import {
   CardContent,
   CardActions,
   CardMedia,
-  Button,
   Box,
   Chip,
   IconButton,
@@ -17,11 +16,19 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import StarIcon from "@mui/icons-material/Star";
 import "../../style/CssStyle/index.css";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import { GlobalContext } from "../../GlobalContext";
 
 const noImage =
   "https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg";
 
 function Product(props) {
+  const context = useContext(GlobalContext);
+  const [isUser, setIsUser] = context.authApi.isUser;
+  const [color, setColor] = useState(false);
+  const heartColor = {
+    color: color ? "red" : "#ddd",
+  };
   const { _id, title, price, image, desc, stock, qnty, rating, isAdmin, del } =
     props;
   return (
@@ -35,11 +42,19 @@ function Product(props) {
                 position: "absolute",
                 border: "none",
                 zIndex: 10,
-                right: 0,
+                left: 0,
               }}
               variant="outlined"
               icon={<StarIcon style={{ color: "#ffcf3f" }} />}
             />
+            {isUser ? (
+              <IconButton sx={{ position: "absolute", zIndex: 10, right: 0 }}>
+                <FavoriteIcon
+                  style={heartColor}
+                  onClick={() => setColor((curColor) => !curColor)}
+                />
+              </IconButton>
+            ) : null}
             <Box
               className="action"
               sx={{

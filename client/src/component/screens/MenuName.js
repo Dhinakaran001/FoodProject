@@ -195,7 +195,7 @@ function MenuName() {
                     onClick={() => filterResult("Soft-Drink")}
                   >
                     <Chip
-                      label="SoftDrink"
+                      label="Soft Drink"
                       variant="outlined"
                       sx={{
                         "&:hover": {
